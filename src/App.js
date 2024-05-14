@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  const addOne = () => {
+    setCounter(counter + 1);
+  };
+
+  const minusOne = () => {
+    setCounter(counter - 1);
+  };
+
+  const multi2 = () => {
+    setCounter(0);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <div>
+        <h1> {counter}</h1>
+        <button onClick={minusOne}> DON'T CLICK HERE! </button>
+      </div>
+      <div>
+        <h1> {counter}</h1>
+        <button onClick={addOne}> CLICK HERE! </button>
+      </div>
+      <div>
+        <h1> {counter}</h1>
+        <button onClick={multi2}> CLICK MORE HERE! </button>
+      </div>
     </div>
   );
 }
